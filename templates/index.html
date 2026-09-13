@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="VoltVision — AI-powered electric vehicle purchase propensity platform."
+    >
+
+    <title>
+        VoltVision — EV Purchase Intelligence
+    </title>
+
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-shell">
+
+
+            <a
+                href="/"
+                class="brand"
+            >
+
+                <span class="brand-icon">
+                    V
+                </span>
+
+
+                <div>
+
+                    <strong>
+                        VoltVision
+                    </strong>
+
+                    <small>
+                        EV Intelligence
+                    </small>
+
+                </div>
+
+            </a>
+
+
+            <nav class="nav-links">
+
+                <a href="#predictor">
+                    Predictor
+                </a>
+
+                <a href="#technology">
+                    Technology
+                </a>
+
+
+                <a
+                    href="#predictor"
+                    class="nav-cta"
+                >
+                    Try model
+                </a>
+
+            </nav>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <main>
+
+
+        <section class="hero">
+
+            <div class="hero-shell">
+
+
+                <!-- -----------------------------------------
+                     Hero Copy
+                ------------------------------------------ -->
+
+                <div class="hero-copy">
+
+
+                    <div class="eyebrow">
+
+                        <span class="eyebrow-dot"></span>
+
+                        Machine learning for electric mobility
+
+                    </div>
+
+
+                    <h1>
+
+                        Understand who is
+
+                        <span>
+                            ready for EV.
+                        </span>
+
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        VoltVision combines customer behavior,
+                        charging infrastructure and EV attitudes
+                        with a three-model machine learning ensemble
+                        to estimate purchase propensity.
+
+                    </p>
+
+
+                    <div class="hero-actions">
+
+
+                        <a
+                            href="#predictor"
+                            class="primary-link"
+                        >
+
+                            Analyze a profile
+
+                            <span>
+                                →
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="#technology"
+                            class="secondary-link"
+                        >
+                            Explore the system
+                        </a>
+
+
+                    </div>
+
+
+                    <div class="hero-stats">
+
+
+                        <div>
+
+                            <strong>
+                                0.9424
+                            </strong>
+
+                            <span>
+                                OOF ROC-AUC
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                668K+
+                            </strong>
+
+                            <span>
+                                Training rows
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                3
+                            </strong>
+
+                            <span>
+                                Boosting models
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- -----------------------------------------
+                     Hero Visual
+                ------------------------------------------ -->
+
+                <div class="hero-visual">
+
+
+                    <div class="hero-image-card">
+
+                        <img
+                            src="{{ url_for('hero_image') }}"
+                            alt="Electric vehicle charging in a clean smart mobility environment"
+                        >
+
+
+                        <div class="image-floating-card top-card">
+
+                            <span class="floating-icon">
+                                AI
+                            </span>
+
+
+                            <div>
+
+                                <strong>
+                                    Ensemble intelligence
+                                </strong>
+
+                                <small>
+                                    3 predictive models
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="image-floating-card bottom-card">
+
+                            <span class="pulse-dot"></span>
+
+
+                            <div>
+
+                                <strong>
+                                    Model ready
+                                </strong>
+
+                                <small>
+                                    Real-time inference
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TRUST STRIP
+        ================================================== -->
+
+        <section class="trust-strip">
+
+            <div class="trust-shell">
+
+                <span>
+                    Powered by
+                </span>
+
+
+                <strong>
+                    LightGBM
+                </strong>
+
+                <i></i>
+
+                <strong>
+                    XGBoost
+                </strong>
+
+                <i></i>
+
+                <strong>
+                    CatBoost
+                </strong>
+
+                <i></i>
+
+                <strong>
+                    Flask
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PREDICTOR
+        ================================================== -->
+
+        <section
+            id="predictor"
+            class="predictor-section"
+        >
+
+
+            <div class="section-header">
+
+
+                <div class="section-label">
+                    EV propensity engine
+                </div>
+
+
+                <h2>
+                    Turn a customer profile into a predictive score.
+                </h2>
+
+
+                <p>
+
+                    Enter the customer information used by the
+                    trained ensemble. VoltVision returns the final
+                    blended probability and each model's individual
+                    prediction.
+
+                </p>
+
+
+            </div>
+
+
+            <div class="predictor-grid">
+
+
+                <!-- =========================================
+                     FORM
+                ========================================== -->
+
+                <form
+                    id="predictionForm"
+                    class="form-card"
+                    novalidate
+                >
+
+
+                    <div class="card-heading">
+
+
+                        <div>
+
+                            <span>
+                                Customer profile
+                            </span>
+
+                            <h3>
+                                Prediction inputs
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="demoButton"
+                            class="demo-button"
+                        >
+                            Load example
+                        </button>
+
+
+                    </div>
+
+
+                    <div
+                        id="formError"
+                        class="form-error"
+                        role="alert"
+                    ></div>
+
+
+
+                    <!-- =====================================
+                         Personal
+                    ====================================== -->
+
+                    <div class="form-group">
+
+
+                        <div class="form-group-heading">
+
+                            <span>
+                                01
+                            </span>
+
+
+                            <div>
+
+                                <h4>
+                                    Personal
+                                </h4>
+
+                                <p>
+                                    Basic customer attributes
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="fields three-fields">
+
+
+                            <label class="field">
+
+                                <span>
+                                    Age
+                                </span>
+
+
+                                <input
+                                    id="Age"
+                                    name="Age"
+                                    type="number"
+                                    min="{{ numeric_ranges.get('Age', {}).get('min', 25) }}"
+                                    max="{{ numeric_ranges.get('Age', {}).get('max', 69) }}"
+                                    step="1"
+                                    value="42"
+                                    required
+                                >
+
+                            </label>
+
+
+                            <label class="field">
+
+                                <span>
+                                    Gender
+                                </span>
+
+
+                                <select
+                                    id="Gender"
+                                    name="Gender"
+                                    required
+                                >
+
+                                    {% for value in form_options.get('Gender', ['Female', 'Male']) %}
+
+                                    <option value="{{ value }}">
+                                        {{ value }}
+                                    </option>
+
+                                    {% endfor %}
+
+                                </select>
+
+                            </label>
+
+
+                            <label class="field">
+
+                                <span>
+                                    Annual income
+                                </span>
+
+
+                                <div class="input-with-prefix">
+
+                                    <b>
+                                        $
+                                    </b>
+
+
+                                    <input
+                                        id="Annual_Income_USD"
+                                        name="Annual_Income_USD"
+                                        type="number"
+                                        min="{{ numeric_ranges.get('Annual_Income_USD', {}).get('min', 30000) }}"
+                                        max="{{ numeric_ranges.get('Annual_Income_USD', {}).get('max', 190000) }}"
+                                        step="100"
+                                        value="92000"
+                                        required
+                                    >
+
+                                </div>
+
+                            </label>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         Driving
+                    ====================================== -->
+
+                    <div class="form-group">
+
+
+                        <div class="form-group-heading">
+
+                            <span>
+                                02
+                            </span>
+
+
+                            <div>
+
+                                <h4>
+                                    Driving profile
+                                </h4>
+
+                                <p>
+                                    Ownership and daily mobility
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="fields three-fields">
+
+
+                            <label class="field">
+
+                                <span>
+                                    Daily commute
+                                </span>
+
+
+                                <div class="input-with-suffix">
+
+                                    <input
+                                        id="Daily_Commute_km"
+                                        name="Daily_Commute_km"
+                                        type="number"
+                                        min="{{ numeric_ranges.get('Daily_Commute_km', {}).get('min', 0) }}"
+                                        max="{{ numeric_ranges.get('Daily_Commute_km', {}).get('max', 100) }}"
+                                        step="0.1"
+                                        value="26.5"
+                                        required
+                                    >
+
+
+                                    <b>
+                                        km
+                                    </b>
+
+                                </div>
+
+                            </label>
+
+
+                            <label class="field">
+
+                                <span>
+                                    Cars owned
+                                </span>
+
+
+                                <input
+                                    id="Number_of_Cars_Owned"
+                                    name="Number_of_Cars_Owned"
+                                    type="number"
+                                    min="{{ numeric_ranges.get('Number_of_Cars_Owned', {}).get('min', 0) }}"
+                                    max="{{ numeric_ranges.get('Number_of_Cars_Owned', {}).get('max', 5) }}"
+                                    step="1"
+                                    value="2"
+                                    required
+                                >
+
+                            </label>
+
+
+                            <label class="field">
+
+                                <span>
+                                    Current car type
+                                </span>
+
+
+                                <select
+                                    id="Current_Car_Type"
+                                    name="Current_Car_Type"
+                                    required
+                                >
+
+                                    {% for value in form_options.get('Current_Car_Type', ['Sedan', 'SUV', 'Hatchback', 'Truck']) %}
+
+                                    <option value="{{ value }}">
+                                        {{ value }}
+                                    </option>
+
+                                    {% endfor %}
+
+                                </select>
+
+                            </label>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         Infrastructure
+                    ====================================== -->
+
+                    <div class="form-group">
+
+
+                        <div class="form-group-heading">
+
+                            <span>
+                                03
+                            </span>
+
+
+                            <div>
+
+                                <h4>
+                                    Infrastructure
+                                </h4>
+
+                                <p>
+                                    Location and charging accessibility
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="fields two-fields">
+
+
+                            <label class="field">
+
+                                <span>
+                                    City type
+                                </span>
+
+
+                                <select
+                                    id="City_Type"
+                                    name="City_Type"
+                                    required
+                                >
+
+                                    {% for value in form_options.get('City_Type', ['Urban', 'Suburban', 'Rural']) %}
+
+                                    <option value="{{ value }}">
+                                        {{ value }}
+                                    </option>
+
+                                    {% endfor %}
+
+                                </select>
+
+                            </label>
+
+
+                            <label class="field">
+
+                                <span>
+                                    Home charging possible
+                                </span>
+
+
+                                <select
+                                    id="Home_Charging_Possible"
+                                    name="Home_Charging_Possible"
+                                    required
+                                >
+
+                                    {% for value in form_options.get('Home_Charging_Possible', ['Yes', 'No']) %}
+
+                                    <option value="{{ value }}">
+                                        {{ value }}
+                                    </option>
+
+                                    {% endfor %}
+
+                                </select>
+
+                            </label>
+
+
+                            <label class="field">
+
+                                <span>
+                                    Charging stations near home
+                                </span>
+
+
+                                <input
+                                    id="Charging_Stations_Near_Home"
+                                    name="Charging_Stations_Near_Home"
+                                    type="number"
+                                    min="{{ numeric_ranges.get('Charging_Stations_Near_Home', {}).get('min', 0) }}"
+                                    max="{{ numeric_ranges.get('Charging_Stations_Near_Home', {}).get('max', 20) }}"
+                                    step="1"
+                                    value="5"
+                                    required
+                                >
+
+                            </label>
+
+
+                            <label class="field">
+
+                                <span>
+                                    Charging stations near work
+                                </span>
+
+
+                                <input
+                                    id="Charging_Stations_Near_Work"
+                                    name="Charging_Stations_Near_Work"
+                                    type="number"
+                                    min="{{ numeric_ranges.get('Charging_Stations_Near_Work', {}).get('min', 0) }}"
+                                    max="{{ numeric_ranges.get('Charging_Stations_Near_Work', {}).get('max', 20) }}"
+                                    step="1"
+                                    value="7"
+                                    required
+                                >
+
+                            </label>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         EV Attitude
+                    ====================================== -->
+
+                    <div class="form-group final-group">
+
+
+                        <div class="form-group-heading">
+
+                            <span>
+                                04
+                            </span>
+
+
+                            <div>
+
+                                <h4>
+                                    EV attitude
+                                </h4>
+
+                                <p>
+                                    Motivation, incentive and range confidence
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="fields two-fields">
+
+
+                            <label class="field range-field">
+
+
+                                <div class="range-heading">
+
+                                    <span>
+                                        Environmental concern
+                                    </span>
+
+
+                                    <strong id="concernValue">
+                                        4
+                                    </strong>
+
+                                </div>
+
+
+                                <input
+                                    id="Environmental_Concern_Level"
+                                    name="Environmental_Concern_Level"
+                                    type="range"
+                                    min="1"
+                                    max="5"
+                                    step="1"
+                                    value="4"
+                                    required
+                                >
+
+
+                                <div class="range-scale">
+
+                                    <small>
+                                        Low
+                                    </small>
+
+                                    <small>
+                                        High
+                                    </small>
+
+                                </div>
+
+
+                            </label>
+
+
+                            <label class="field">
+
+                                <span>
+                                    Range anxiety
+                                </span>
+
+
+                                <select
+                                    id="Range_Anxiety_Level"
+                                    name="Range_Anxiety_Level"
+                                    required
+                                >
+
+                                    {% for value in form_options.get('Range_Anxiety_Level', ['Low', 'Medium', 'High']) %}
+
+                                    <option value="{{ value }}">
+                                        {{ value }}
+                                    </option>
+
+                                    {% endfor %}
+
+                                </select>
+
+                            </label>
+
+
+                            <div class="field full-field">
+
+                                <span>
+                                    EV subsidy available
+                                </span>
+
+
+                                <div class="segmented-control">
+
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="Subsidy_Available"
+                                            value="Yes"
+                                            checked
+                                        >
+
+                                        <span>
+                                            Yes
+                                        </span>
+
+                                    </label>
+
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="Subsidy_Available"
+                                            value="No"
+                                        >
+
+                                        <span>
+                                            No
+                                        </span>
+
+                                    </label>
+
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <button
+                        type="submit"
+                        id="submitButton"
+                        class="submit-button"
+                    >
+
+                        <span class="submit-text">
+
+                            Analyze EV propensity
+
+                            <b>
+                                →
+                            </b>
+
+                        </span>
+
+
+                        <span
+                            class="submit-loader"
+                            aria-hidden="true"
+                        ></span>
+
+                    </button>
+
+
+                </form>
+
+
+
+                <!-- =========================================
+                     RESULT
+                ========================================== -->
+
+                <aside class="result-card">
+
+
+                    <div class="result-card-top">
+
+
+                        <span>
+                            Ensemble result
+                        </span>
+
+
+                        <div
+                            id="resultBadge"
+                            class="result-badge idle"
+                        >
+                            Waiting
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- Empty -->
+
+                    <div
+                        id="emptyState"
+                        class="empty-result"
+                    >
+
+
+                        <div class="empty-graphic">
+
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+
+                            <div>
+                                V
+                            </div>
+
+
+                        </div>
+
+
+                        <h3>
+                            Ready to analyze.
+                        </h3>
+
+
+                        <p>
+
+                            Enter a customer profile to generate
+                            an EV purchase propensity score from
+                            the trained ensemble.
+
+                        </p>
+
+
+                    </div>
+
+
+
+                    <!-- Result -->
+
+                    <div
+                        id="resultState"
+                        class="result-content hidden"
+                    >
+
+
+                        <div class="score-area">
+
+
+                            <div
+                                id="scoreRing"
+                                class="score-ring"
+                                style="--score-angle: 0deg;"
+                            >
+
+
+                                <div class="score-center">
+
+                                    <strong id="scoreValue">
+                                        0.0%
+                                    </strong>
+
+                                    <span>
+                                        purchase likelihood
+                                    </span>
+
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="prediction-summary">
+
+
+                            <span id="tierLabel">
+                                —
+                            </span>
+
+
+                            <h3 id="resultTitle">
+                                EV purchase propensity
+                            </h3>
+
+
+                            <p id="resultText">
+
+                                Prediction generated by
+                                the three-model ensemble.
+
+                            </p>
+
+
+                        </div>
+
+
+
+                        <div class="model-breakdown">
+
+
+                            <div class="breakdown-header">
+
+                                <strong>
+                                    Model breakdown
+                                </strong>
+
+                                <span>
+                                    probability
+                                </span>
+
+                            </div>
+
+
+
+                            <!-- LightGBM -->
+
+                            <div class="model-line">
+
+
+                                <div class="model-name">
+
+                                    <span>
+                                        LightGBM
+                                    </span>
+
+                                    <small>
+                                        55%
+                                    </small>
+
+                                </div>
+
+
+                                <div class="probability-track">
+
+                                    <div
+                                        id="lgbBar"
+                                        class="probability-fill"
+                                    ></div>
+
+                                </div>
+
+
+                                <strong id="lgbValue">
+                                    0%
+                                </strong>
+
+
+                            </div>
+
+
+
+                            <!-- XGBoost -->
+
+                            <div class="model-line">
+
+
+                                <div class="model-name">
+
+                                    <span>
+                                        XGBoost
+                                    </span>
+
+                                    <small>
+                                        10%
+                                    </small>
+
+                                </div>
+
+
+                                <div class="probability-track">
+
+                                    <div
+                                        id="xgbBar"
+                                        class="probability-fill"
+                                    ></div>
+
+                                </div>
+
+
+                                <strong id="xgbValue">
+                                    0%
+                                </strong>
+
+
+                            </div>
+
+
+
+                            <!-- CatBoost -->
+
+                            <div class="model-line">
+
+
+                                <div class="model-name">
+
+                                    <span>
+                                        CatBoost
+                                    </span>
+
+                                    <small>
+                                        35%
+                                    </small>
+
+                                </div>
+
+
+                                <div class="probability-track">
+
+                                    <div
+                                        id="catBar"
+                                        class="probability-fill"
+                                    ></div>
+
+                                </div>
+
+
+                                <strong id="catValue">
+                                    0%
+                                </strong>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="disclaimer">
+
+                            <span>
+                                i
+                            </span>
+
+
+                            <p>
+
+                                This score is a predictive estimate
+                                based on the competition dataset.
+                                It is not a guarantee of customer behavior.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </aside>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             TECHNOLOGY
+        ================================================== -->
+
+        <section
+            id="technology"
+            class="technology-section"
+        >
+
+
+            <div class="technology-shell">
+
+
+                <div class="technology-intro">
+
+
+                    <span class="section-label">
+                        Under the hood
+                    </span>
+
+
+                    <h2>
+                        Different models. One prediction.
+                    </h2>
+
+
+                    <p>
+
+                        Each boosting model learns the dataset
+                        differently. Their probabilities are combined
+                        using weights selected from out-of-fold
+                        experiments.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="technology-cards">
+
+
+                    <article>
+
+                        <span>
+                            01
+                        </span>
+
+                        <h3>
+                            LightGBM
+                        </h3>
+
+                        <p>
+                            Primary gradient boosting model
+                            using the engineered tree representation.
+                        </p>
+
+                        <strong>
+                            55%
+                        </strong>
+
+                    </article>
+
+
+                    <article>
+
+                        <span>
+                            02
+                        </span>
+
+                        <h3>
+                            XGBoost
+                        </h3>
+
+                        <p>
+                            Independent tree boosting system
+                            contributing complementary predictions.
+                        </p>
+
+                        <strong>
+                            10%
+                        </strong>
+
+                    </article>
+
+
+                    <article>
+
+                        <span>
+                            03
+                        </span>
+
+                        <h3>
+                            CatBoost
+                        </h3>
+
+                        <p>
+                            Native categorical boosting model
+                            preserving original category structure.
+                        </p>
+
+                        <strong>
+                            35%
+                        </strong>
+
+                    </article>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div class="footer-shell">
+
+
+            <div class="footer-brand">
+
+                <span>
+                    V
+                </span>
+
+                <strong>
+                    VoltVision
+                </strong>
+
+            </div>
+
+
+            <p>
+                End-to-end machine learning portfolio project.
+            </p>
+
+
+            <p>
+                Flask · LightGBM · XGBoost · CatBoost
+            </p>
+
+
+        </div>
+
+    </footer>
+
+
+
+    <script
+        src="{{ url_for('static', filename='js/app.js') }}"
+        defer
+    ></script>
+
+
+</body>
+
+</html>
